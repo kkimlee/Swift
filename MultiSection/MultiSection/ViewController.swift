@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var arrSosi = ["호연", "제시카", "서현", "수영", "써니", "태연", "티파니", "윤아", "유리"]
     var arrExo = ["시우민", "디오", "첸", "백현", "세훈", "카이", "루한", "레이", "찬열", "수호", "크리스"]
     
@@ -24,6 +24,39 @@ class ViewController: UIViewController, UITableViewDataSource {
             return arrExo.count
         }
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let imageView = UIImageView()
+        
+        if (section == 0) {
+            let image = UIImage(named: "소녀시대.jpg")
+            imageView.image = image
+        }
+        
+        return imageView
+        
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let imageView = UIImageView()
+        
+        if (section == 0) {
+            let image = UIImage(named: "소녀시대.jpg")
+            imageView.image = image
+        }
+        
+        return imageView
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -46,23 +79,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0) {
-            return "소녀시대"
-        }
-        else {
-            return "Exo"
-        }
-    }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if (section == 0) {
-            return "소녀시대 footer"
-        }
-        else {
-            return "Exo footer"
-        }
-    }
+    
     
     
     
@@ -72,6 +90,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         table.dataSource = self
+        table.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
