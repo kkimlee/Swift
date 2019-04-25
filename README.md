@@ -18,3 +18,18 @@ TableView 와 PickerView 복습
 
 # UI
 여러가지 UI 
+
+# UIChangeController
+UITabBarController와 NINavigationController을 이용한 화면전환 예제
+
+# UIPickerView
+UIPickerView 예제
+
+# UITableView
+UITalbeView 사용방법
+
+# UITalbeViewEx
+UITableVIew 예제
+
+# UIViewController
+UIPickerView와 label응용 
